@@ -1,0 +1,63 @@
+<div class="container">
+
+  <form class="form-horizontal" #ownerForm="ngForm" (ngSubmit)="onSubmit(ownerForm.value)">
+    <div class="form-group">
+      <label for="nombre">Nombre</label>
+      <input type="text" class="form-control" required [(ngModel)]="owner.firstName" name="firstName"
+        #firstName="ngModel" placeholder="Introduce el nombre">
+      <div [hidden]="firstName.valid || firstName.pristine" class="alert alert-danger">
+        El nombre es necesario
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Apellidos</label>
+      <input type="text" class="form-control" required [(ngModel)]="owner.lastName" name="lastName" #lastName="ngModel"
+        placeholder="Introduce el apellido">
+      <div [hidden]="lastName.valid || lastName.pristine" class="alert alert-danger">
+        Es obligatorio
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <div class="col-6">
+        <label>Telefono</label>
+        <input type="text" class="form-control" required [(ngModel)]="owner.telephone" name="telephone"
+          #telephone="ngModel" placeholder="Introduce el telefono">
+        <div [hidden]="telephone.valid || telephone.pristine" class="alert alert-danger">
+          Es obligatorio
+        </div>
+      </div>
+      <div class="col-6">
+        <label>Ciudad</label>
+        <input type="text" class="form-control" required [(ngModel)]="owner.city" name="city" #city="ngModel"
+          placeholder="Introduce la ciudad">
+        <div [hidden]="city.valid || city.pristine" class="alert alert-danger">
+          Es obligatorio
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Direccion</label>
+      <input type="text" class="form-control" required [(ngModel)]="owner.address" name="address" #address="ngModel"
+        placeholder="Introduce la address">
+      <div [hidden]="address.valid || address.pristine" class="alert alert-danger">
+        Es obligatorio
+      </div>
+    </div>
+
+    <div class="form-group">
+      <button class="btn btn-primary" type="submit" [disabled]="!ownerForm.valid">
+        Añadir
+      </button>
+      <a routerLink="/owners">
+        <button class="btn btn-secondary" type="button">
+          Cancelar
+        </button>
+      </a>
+
+    </div>
+
+  </form>
+</div>

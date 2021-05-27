@@ -1,0 +1,21 @@
+<div>
+  <table border="1">
+    <th>Nombre</th>
+    <th>Apellidos</th>
+    <th>Dirección</th>
+    <th>Ciudad</th>
+    <th>Teléfono</th>
+    <th>Animalicos</th>
+    <tr>
+      <td>{{detallesOwner.firstName}}</td>
+      <td>{{detallesOwner.lastName}}</td>
+      <td>{{detallesOwner.address}}</td>
+      <td>{{detallesOwner.city}}</td>
+      <td>{{detallesOwner.telephone}}</td>
+      <td>{{detallesOwner.pets}}</td>
+    </tr>
+  </table>
+  <br>
+  <button type="button" (click)="borrar(detallesOwner.id)">Borrar</button>
+  <button type="button" routerLink="/owners">Cancelar</button>
+</div>

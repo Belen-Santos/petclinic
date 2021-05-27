@@ -1,0 +1,21 @@
+<div class="container-fluid">
+  <div>
+    <h1 style="display: inline-block;">Especialidades</h1>
+    <a style="margin-left: 2%;" routerLink="/specialities-add/-1">
+      <button class="btn btn-secondary" type="button">Añadir Especialidad</button>
+    </a>
+  </div>
+</div>
+
+<br>
+<p>Aqui mostramos las especialidades:</p>
+<ul>
+  <li *ngFor="let s of specialities">
+    <a routerLink="/specialities/{{s.id}}" routerLinkActive="active" (click)="onSelect(s)">
+      {{s.id}} -
+      {{s.name}}
+    </a>
+    <button type="button" (click)="del(s)">Delete</button>
+    <button type="button" (click)="upd(s.id)">Update </button>
+  </li>
+</ul>

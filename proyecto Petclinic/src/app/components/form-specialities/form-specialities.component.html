@@ -1,0 +1,26 @@
+<div class="container">
+
+  <form class="form-horizontal" #specialityForm="ngForm" (ngSubmit)="onSubmit(specialityForm.value)">
+    <div class="form-group">
+      <label>Nombre</label>
+      <input type="text" class="form-control" required [(ngModel)]="speciality.name" name="name" #name="ngModel"
+        placeholder="Introduce el nombre">
+      <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+        Nombre es necesario
+      </div>
+    </div>
+
+    <div class="form-group">
+      <button class="btn btn-primary" type="submit" [disabled]="!specialityForm.valid">
+        Añadir
+      </button>
+      <a routerLink="/specialities">
+        <button class="btn btn-secondary" type="button">
+          Cancelar
+        </button>
+      </a>
+
+    </div>
+
+  </form>
+</div>

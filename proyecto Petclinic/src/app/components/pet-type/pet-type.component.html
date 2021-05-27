@@ -1,0 +1,24 @@
+<div class="container-fluid">
+  <div>
+    <h1 style="display: inline-block;">Tipos de animales</h1>
+    <a style="margin-left: 2%;" routerLink="/types-add/-1">
+      <button class="btn btn-secondary" type="button">Añadir tipo</button>
+    </a>
+  </div>
+
+</div>
+<br>
+<p>Aqui mostramos los tipos de animales: </p>
+
+<div>
+  <table border="1">
+    <th>Nombre</th>
+    <th>Editar</th>
+    <th>Borrar</th>
+    <tr *ngFor="let type of petTypes">
+      <td> <a routerLink="/pet-type/{{type.id}}" routerLinkActive="active">{{type.name}} </a> </td>
+      <td> <button (click)="upd(type)">Editar</button> </td>
+      <td> <button (click)="del(type.id)">Borrar</button> </td>
+    </tr>
+  </table>
+</div>

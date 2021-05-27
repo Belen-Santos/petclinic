@@ -1,0 +1,49 @@
+<h3>Formulario Vet</h3>
+<br>
+
+<div class="container">
+
+  <form class="form-horizontal" #vetsForm="ngForm" (ngSubmit)="onSubmit(vetsForm.value)">
+    <div class="form-group">
+      <label>Nombre</label>
+      <input type="text" class="form-control" required [(ngModel)]="vet.firstName" name="firstName" #firstName="ngModel"
+        placeholder="Introduce el nombre">
+      <div [hidden]="firstName.valid || firstName.pristine" class="alert alert-danger">
+        Nombre es necesario
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Apellidos</label>
+      <input type="text" class="form-control" required [(ngModel)]="vet.lastName" name="lastName" #lastName="ngModel"
+        placeholder="Introduce el apellido">
+      <div [hidden]="lastName.valid || lastName.pristine" class="alert alert-danger">
+        Es obligatorio
+      </div>
+    </div>
+
+
+    <div class="form-group">
+      <label>Especialidades: </label> <br>
+      <select class="form-select" aria-label="Default select example" name="specialties" [(ngModel)]="seleccionados"
+        multiple="multiple">
+        <option [ngValue]="especialidad" *ngFor="let especialidad of especialidades">
+          {{especialidad.name}}</option>
+      </select>
+
+
+    </div>
+
+
+    <div class="form-group">
+      <button class="btn btn-primary" type="submit" [disabled]="!vetsForm.valid">
+        {{textoBoton}}
+      </button>
+      <a routerLink="/vets">
+        <button class="btn btn-secondary" type="button">
+          Cancelar
+        </button>
+      </a>
+    </div>
+  </form>
+</div>

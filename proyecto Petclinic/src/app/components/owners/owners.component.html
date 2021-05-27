@@ -1,0 +1,25 @@
+<div class="container-fluid">
+  <div>
+    <h1 style="display: inline-block;">Owners</h1>
+    <a style="margin-left: 2%;" routerLink="/owners-add/-1">
+      <button class="btn btn-secondary" type="button">Añadir owner</button>
+    </a>
+  </div>
+</div>
+
+<br>
+<h3>Listado owners:</h3>
+
+<div>
+  <table border="1">
+    <th>Nombre</th>
+    <th>Apellidos</th>
+    <th>Acciones</th>
+    <tr *ngFor="let owner of listadoOwners">
+      <td> <a routerLink="/owners/{{owner.id}}" routerLinkActive="active">{{owner.firstName}} </a> </td>
+      <td>{{owner.lastName}}</td>
+      <td> <button (click)="editar(owner)">Editar</button> <button (click)="borrar(owner)">Borrar</button>
+      </td>
+    </tr>
+  </table>
+</div>

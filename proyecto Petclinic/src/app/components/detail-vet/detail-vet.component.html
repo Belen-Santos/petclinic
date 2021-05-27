@@ -1,0 +1,23 @@
+<p>Aqui mostramos los veterinarios de los animales: </p>
+<table border="1">
+  <th>ID</th>
+  <th>NOMBRE</th>
+  <th>APELLIDOS</th>
+  <th>ESPECIALIDADES</th>
+  <th>Borrar</th>
+  <th>Cancelar</th>
+  <tr>
+    <td> {{vet.id}} </td>
+    <td>{{vet.firstName}}</td>
+    <td>{{vet.lastName}}</td>
+    <td>
+      <div *ngFor="let especialidad of vet.specialties">{{especialidad.name}}</div>
+    </td>
+    <td>
+      <button type="button" (click)="del(vet)">Borrar</button>
+    </td>
+    <td>
+      <button type="button" routerLink="/vets">Cancelar </button>
+    </td>
+  </tr>
+</table>

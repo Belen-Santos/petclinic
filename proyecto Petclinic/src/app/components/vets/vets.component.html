@@ -1,0 +1,30 @@
+<div class="container-fluid">
+  <div>
+    <h1 style="display: inline-block;">Veterinarios</h1>
+    <a style="margin-left: 2%;" routerLink="/vets-add/-1">
+      <button class="btn btn-secondary" type="button">Añadir Veterinario</button>
+    </a>
+  </div>
+</div>
+
+<br>
+<p>Aqui mostramos los veterinarios de los animales: </p>
+<table border="1">
+  <th>ID</th>
+  <th>NOMBRE</th>
+  <th>APELLIDOS</th>
+  <th>ESPECIALIDADES</th>
+  <th>Editar</th>
+  <tr *ngFor="let vet of vets">
+    <td> <a routerLink="/vets/{{vet.id}}" routerLinkActive="active">
+        {{vet.id}}</a> </td>
+    <td>{{vet.firstName}}</td>
+    <td>{{vet.lastName}}</td>
+    <td>
+      <div *ngFor="let especialidad of vet.specialties">{{especialidad.name}}</div>
+    </td>
+    <td>
+      <button type="button" (click)="upd(vet.id)">Editar </button>
+    </td>
+  </tr>
+</table>
